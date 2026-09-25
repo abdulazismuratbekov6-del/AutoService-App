@@ -1,0 +1,33 @@
+from enum import StrEnum
+
+
+class BookingStatus(StrEnum):
+    PENDING = "PENDING"
+    CONFIRMED = "CONFIRMED"
+    CANCELLED = "CANCELLED"
+    ARRIVED = "ARRIVED"
+    IN_PROGRESS = "IN_PROGRESS"
+    WAITING = "WAITING"
+    COMPLETED = "COMPLETED"
+    NO_SHOW = "NO_SHOW"
+
+
+class OrderStatus(StrEnum):
+    CREATED = "CREATED"
+    PAID = "PAID"
+    PROCESSING = "PROCESSING"
+    SHIPPED = "SHIPPED"
+    READY_FOR_PICKUP = "READY_FOR_PICKUP"
+    RECEIVED = "RECEIVED"
+    COMPLETED = "COMPLETED"
+    CANCELLED = "CANCELLED"
+    REFUNDED = "REFUNDED"
+
+
+class PaymentStatus(StrEnum):
+    PENDING = "PENDING"
+    PAID = "PAID"
+    HELD = "HELD"
+    RELEASED = "RELEASED"
+    REFUNDED = "REFUNDED"
+    FAILED = "FAILED"

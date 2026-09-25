@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AutoCare — автосервис, магазин и история автомобиля">
+  <title>{% block title %}AutoCare{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="header container">
+      <a href="{{ url_for('web.home') }}" class="logo"><span>🔧</span>AutoCare</a>
+      <nav class="nav" id="nav">
+        <a class="{{ 'active' if request.endpoint == 'web.home' }}" href="{{ url_for('web.home') }}">Главная</a>
+        <a class="{{ 'active' if request.endpoint == 'web.garage' }}" href="{{ url_for('web.garage') }}">Мои авто</a>
+        <a class="{{ 'active' if request.endpoint == 'web.service' }}" href="{{ url_for('web.service') }}">Автосервис</a>
+        <a class="{{ 'active' if request.endpoint == 'web.shop' }}" href="{{ url_for('web.shop') }}">Магазин</a>
+        <a class="{{ 'active' if request.endpoint == 'web.history' }}" href="{{ url_for('web.history') }}">История</a>
+      </nav>
+      <div class="header-actions"><button class="button button--ghost">Войти</button><button class="button">Регистрация</button></div>
+      <button class="menu-button" type="button" aria-label="Меню" onclick="document.querySelector('#nav').classList.toggle('nav--open')">☰</button>
+    </header>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}<div class="container">{% for category, message in messages %}<div class="flash flash--{{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}
+    {% endwith %}
+    <main>{% block content %}{% endblock %}</main>
+    <footer class="footer"><div class="container footer-inner"><div><strong>AutoCare</strong><p>Всё для автомобиля в одном месте.</p></div><p>© 2026 AutoCare · Учебный Python-проект</p></div></footer>
+  </div>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero"><div class="container hero-grid"><div class="hero-copy">
+  <span class="eyebrow">✓ Надёжный уход за автомобилем</span>
+  <h1>Ваш автомобиль.<br><em>Под полным контролем.</em></h1>
+  <p>Записывайтесь на сервис, заказывайте запчасти и храните полную историю обслуживания по VIN.</p>
+  <div class="hero-actions"><a class="button button--large" href="{{ url_for('web.service') }}">Записаться на сервис →</a><a class="button button--ghost button--large" href="{{ url_for('web.garage') }}">Добавить авто</a></div>
+  <div class="hero-stats"><div><strong>12 000+</strong><span>обслуженных авто</span></div><div><strong>4.9</strong><span>средняя оценка</span></div><div><strong>8 лет</strong><span>опыта</span></div></div>
+</div><div class="hero-card"><div class="car-visual" style="font-size:90px">🚘</div><div class="vehicle-head"><div><span>Ваш автомобиль</span><strong>Toyota Camry</strong></div><span class="online-dot">Активен</span></div><div class="vehicle-meta"><div><span>VIN</span><b>JTNB11HK3K3••••••</b></div><div><span>Пробег</span><b>64 280 км</b></div></div><div class="service-reminder"><b>📅</b><div><span>Следующее ТО</span><strong>Через 1 720 км</strong></div><b>→</b></div></div></div></section>
+<section class="section container"><div class="section-title"><span>ВОЗМОЖНОСТИ</span><h2>Одна платформа — полный цикл заботы</h2><p>От первого визита до прозрачной истории каждого ремонта.</p></div><div class="feature-grid">
+  <a href="{{ url_for('web.service') }}" class="feature-card"><div class="feature-icon">🔧</div><h3>Запись в автосервис</h3><p>Выберите услугу, механика и удобное время онлайн.</p><span>Подробнее →</span></a>
+  <a href="{{ url_for('web.shop') }}" class="feature-card"><div class="feature-icon feature-icon--1">🛍️</div><h3>Магазин запчастей</h3><p>Подбор совместимых деталей и расходников для вашего авто.</p><span>Подробнее →</span></a>
+  <a href="{{ url_for('web.history') }}" class="feature-card"><div class="feature-icon feature-icon--2">📋</div><h3>История по VIN</h3><p>Работы, пробег, детали и рекомендации в едином журнале.</p><span>Подробнее →</span></a>
+</div></section>
+{% endblock %}

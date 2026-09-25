@@ -1,0 +1,9 @@
+import { CheckCircle2, FileText, Gauge, Wrench } from 'lucide-react';
+import { StatusBadge } from '../shared/ui/StatusBadge';
+
+const records = [
+  { date: '12 августа 2026', title: 'Плановое техническое обслуживание', mileage: '64 280 км', mechanic: 'Алексей Морозов', work: 'Замена масла, масляного и воздушного фильтров', status: 'COMPLETED' as const },
+  { date: '3 февраля 2026', title: 'Диагностика ходовой части', mileage: '57 110 км', mechanic: 'Данияр Садыков', work: 'Диагностика, замена передних тормозных колодок', status: 'COMPLETED' as const },
+  { date: '18 июля 2025', title: 'Плановое техническое обслуживание', mileage: '48 450 км', mechanic: 'Михаил Волков', work: 'Замена масла и фильтров, проверка технических жидкостей', status: 'COMPLETED' as const },
+];
+export function HistoryPage() { return <section className="section container page"><div className="page-heading"><div><span className="eyebrow">Электронная сервисная книжка</span><h1>История автомобиля</h1><p>Toyota Camry · VIN JTNB11HK3K3••••••</p></div><button className="button button--ghost"><FileText size={18} /> Скачать PDF</button></div><div className="history-stats"><div><Wrench /><span>Всего обслуживаний<strong>8</strong></span></div><div><Gauge /><span>Текущий пробег<strong>64 280 км</strong></span></div><div><CheckCircle2 /><span>Состояние<strong>Обслужен</strong></span></div></div><div className="timeline">{records.map(record => <article key={record.date}><div className="timeline-dot"><Wrench /></div><div className="record"><div className="record-head"><div><time>{record.date}</time><h3>{record.title}</h3></div><StatusBadge status={record.status} /></div><div className="record-meta"><span>Пробег <b>{record.mileage}</b></span><span>Механик <b>{record.mechanic}</b></span></div><p>{record.work}</p><button>Открыть отчёт →</button></div></article>)}</div></section>; }
